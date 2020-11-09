@@ -1,3 +1,9 @@
+# TikZ external output
+./tikz_external/*
+
+# output file
+damage_deck.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

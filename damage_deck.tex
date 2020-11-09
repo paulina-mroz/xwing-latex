@@ -1,0 +1,211 @@
+\documentclass[a4paper,10pt,twoside,openright]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+
+\usepackage{helvet}
+\renewcommand{\rmdefault}{phv}
+
+\usepackage{shellesc}
+\usepackage{tikz}
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=tikz_external/]
+% \tikzset{external/force remake}
+\usepackage{mwe}
+\usetikzlibrary{shapes,arrows.meta,positioning,backgrounds,fit,fadings}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\author{Paulina Mr\'oz}
+\title{X-Wing damage deck}
+\date{2020}
+
+\usepackage[pdftex,
+            pdfauthor={Paulina Mr\'oz},
+            pdftitle={X-Wing damage deck},
+            pdfsubject={X-Wing cards},
+            pdfkeywords={X--Wing},
+            pdfproducer={Latex},
+            pdfcreator={pdflatex},
+            hidelinks]{hyperref}
+
+\usepackage[none]{hyphenat}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inlinegraphics}[1]{%
+\raisebox{-0.2em}{\includegraphics[height=1em]{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+\pagestyle{empty}
+
+\definecolor{back_color}{RGB}{255, 255, 255}
+\definecolor{frame_color}{RGB}{0,0,0}
+% \definecolor{frame1_fill_color}{RGB}{168, 99, 50}
+\definecolor{frame1_fill_color}{RGB}{200,120,50}
+\definecolor{frame2_fill_color}{RGB}{255, 255, 255}
+\colorlet{hit_frame_fill_color}{frame1_fill_color!80!red!80!black}
+
+\tikzstyle{frame_back} = [color=frame_color,fill=back_color,line width=0pt,rounded corners=0.3cm]
+\tikzstyle{frame1} = [color=frame_color,fill=frame1_fill_color,line width=1pt,rounded corners=0.3cm]
+\tikzstyle{frame1_back} = [color=frame_color,fill=frame_color,line width=1pt]
+\tikzstyle{frame2} = [color=frame_color,fill=frame2_fill_color,line width=1pt,rounded corners=0.2cm]
+\tikzstyle{node_title} = [color=black,font=\normalsize\bfseries\scshape,text width=3.1cm,align=center]
+\tikzstyle{node_subtitle} = [color=black,font=\footnotesize\bfseries\itshape,text width=3.1cm,align=center,below]
+\tikzstyle{node_desc} = [color=black,font=\scriptsize,text width=3.1cm,align=center,below]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame1_back] (0,0) rectangle (4.1,6.3);
+    \draw [frame1] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \draw [frame2] (0.4,0.7) rectangle (3.7,5.9);
+    \draw [frame2] (0.4,0.7) rectangle (3.7,5.9);
+    \draw [frame2] (0.4,4.6) rectangle (3.7,5.9);
+    \node[node_title] () at (2.05,5.25) {Awaria uzbrojenia};
+    \node[node_subtitle] () at (2.05,4.5) {Statek};
+    \node[node_desc] () at (2.05,4.1) {Zredukuj wartość swojej podstawowej broni o~1 (do minimum ,,0'').\\\vspace{1ex}\textbf{Akcja:} Rzuć 1 kością ataku. Jeśli wypadnie wynik \inlinegraphics{../icons/hit.pdf} lub \inlinegraphics{../icons/critical_hit.pdf}, zakryj tę kartę.};
+  \end{scope}
+  \begin{scope}
+    \draw [color=black,fill=hit_frame_fill_color,line width=1pt] (2.05cm,0.6cm) circle (0.4cm);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,0.6cm) circle (0.4cm) node {\includegraphics[width=0.6cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+%
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame1] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \draw [frame2] (0.4,0.7) rectangle (3.7,5.9);
+    \draw [frame2] (0.4,4.9) rectangle (3.7,5.9);
+    \node[node_title] () at (2.05,5.4) {Awaria uzbrojenia};
+    \node[node_subtitle] () at (2.05,4.8) {Statek};
+    \node[node_desc] () at (2.05,4.4) {Zredukuj wartość swojej podstawowej broni o~1 (do minimum ,,0'').\\\vspace{1ex}\textbf{Akcja:} Rzuć 1 kością ataku. Jeśli wypadnie wynik \inlinegraphics{../icons/hit.pdf} lub \inlinegraphics{../icons/critical_hit.pdf}, zakryj tę kartę.};
+  \end{scope}
+  \begin{scope}
+    \draw [color=black,fill=hit_frame_fill_color,line width=1pt] (2.05cm,0.6cm) circle (0.4cm);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,0.6cm) circle (0.4cm) node {\includegraphics[width=0.6cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+%
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame1] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \draw [frame2] (0.4,0.7) rectangle (3.7,5.9);
+    \draw [frame2] (0.4,4.9) rectangle (3.7,5.9);
+    \node[node_title] () at (2.05,5.4) {Konsola w ogniu};
+    \node[node_subtitle] () at (2.05,4.8) {Statek};
+    \node[node_desc] () at (2.05,4.4) {Na początku każdej fazy walki rzuć 1 kościa ataku. Jeśli wypadnie wynik \inlinegraphics{../icons/hit.pdf}, otrzymujesz 1 uszkodzenie.\\\vspace{1ex}\textbf{Akcja:} Zakryj tę kartę.};
+  \end{scope}
+  \begin{scope}
+    \draw [color=black,fill=hit_frame_fill_color,line width=1pt] (2.05cm,0.6cm) circle (0.4cm);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,0.6cm) circle (0.4cm) node {\includegraphics[width=0.6cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+%
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame1] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \draw [frame2] (0.4,0.7) rectangle (3.7,5.9);
+    \draw [frame2] (0.4,4.9) rectangle (3.7,5.9);
+    \node[node_title] () at (2.05,5.4) {Konsola w ogniu};
+    \node[node_subtitle] () at (2.05,4.8) {Statek};
+    \node[node_desc] () at (2.05,4.4) {Na początku każdej fazy walki rzuć 1 kościa ataku. Jeśli wypadnie wynik \inlinegraphics{../icons/hit.pdf}, otrzymujesz 1 uszkodzenie.\\\vspace{1ex}\textbf{Akcja:} Zakryj tę kartę.};
+  \end{scope}
+  \begin{scope}
+    \draw [color=black,fill=hit_frame_fill_color,line width=1pt] (2.05cm,0.6cm) circle (0.4cm);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,0.6cm) circle (0.4cm) node {\includegraphics[width=0.6cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame1] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \draw [frame2] (0.4,0.7) rectangle (3.7,5.9);
+    \draw [frame2] (0.4,4.6) rectangle (3.7,5.9);
+    \node[node_title] () at (2.05,5.25) {Niewielka nieszczelność kadłuba};
+    \node[node_subtitle] () at (2.05,4.5) {Pilot};
+    \node[node_desc] () at (2.05,4.1) {Asdf};
+    % \\\vspace{1ex}\textbf{Akcja:}
+    % \inlinegraphics{../icons/hit.pdf}
+    % \inlinegraphics{../icons/critical_hit.pdf}
+    % \inlinegraphics{../icons/talent.pdf}
+  \end{scope}
+  \begin{scope}
+    \draw [color=black,fill=hit_frame_fill_color,line width=1pt] (2.05cm,0.6cm) circle (0.4cm);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,0.6cm) circle (0.4cm) node {\includegraphics[width=0.6cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+%
+
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame1] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \draw [frame2] (0.4,0.7) rectangle (3.7,5.9);
+    \draw [frame2] (0.4,4.9) rectangle (3.7,5.9);
+    \node[node_title] () at (2.05,5.4) {Ogłuszony};
+    \node[node_subtitle] () at (2.05,4.8) {Pilot};
+    \node[node_desc] () at (2.05,4.4) {Asdf};
+    % \\\vspace{1ex}\textbf{Akcja:}
+    % \inlinegraphics{../icons/hit.pdf}
+    % \inlinegraphics{../icons/critical_hit.pdf}
+    % \inlinegraphics{../icons/talent.pdf}
+  \end{scope}
+  \begin{scope}
+    \draw [color=black,fill=hit_frame_fill_color,line width=1pt] (2.05cm,0.6cm) circle (0.4cm);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,0.6cm) circle (0.4cm) node {\includegraphics[width=0.6cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+\newpage
+
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame_back] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,3.15cm) circle (2.05cm) node {\includegraphics[width=3.5cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+%
+\begin{tikzpicture}
+  \begin{scope}
+    \draw [frame_back] (0,0) rectangle (4.1,6.3);
+  \end{scope}
+  \begin{scope}
+    \clip (2.05cm,3.15cm) circle (2.05cm) node {\includegraphics[width=3.5cm]{../icons/back_damage_card.pdf}};
+  \end{scope}
+\end{tikzpicture}
+
+
+
+\end{center}
+\end{document}
